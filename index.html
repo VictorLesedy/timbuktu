@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timbuktu Entertainment — The 2026 Season</title>
+<meta name="description" content="Timbuktu Entertainment produces concerts and live events across Tanzania. The 2026 season: Wild Wild East, Gold Rush, It's A Cold Summer & Suit & Tie. Get tickets.">
+<meta name="theme-color" content="#16130C">
+<!-- Open Graph / WhatsApp / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Timbuktu Entertainment">
+<meta property="og:title" content="Timbuktu Entertainment — The Crossroads of Sound">
+<meta property="og:description" content="The 2026 season: four nights across Tanzania. Early Bird, VIP & VVIP tickets and the Season Pass on sale now.">
+<!-- NOTE: replace the domain below with your live URL once deployed (scrapers need an absolute URL) -->
+<meta property="og:url" content="https://timbuktu.events/">
+<meta property="og:image" content="https://timbuktu.events/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Timbuktu Entertainment — The Crossroads of Sound">
+<meta name="twitter:description" content="The 2026 season: four nights across Tanzania. Tickets & Season Pass on sale now.">
+<meta name="twitter:image" content="https://timbuktu.events/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='10' cy='16' r='6' fill='%23FF5A1F'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%230E9E6E'/%3E%3Ccircle cx='22' cy='16' r='6' fill='%231E45D8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dur-instant:100ms;--dur-fast:180ms;--dur-base:280ms;--dur-slow:420ms;--dur-xslow:650ms;
+    --ease-standard:cubic-bezier(.4,0,.2,1);
+    --ease-decelerate:cubic-bezier(0,0,.2,1);
+    --ease-out-expo:cubic-bezier(.16,1,.3,1);
+    --ease-overshoot:cubic-bezier(.34,1.56,.64,1);
+    --paper:#F4F1E6;--paper-2:#ECE7D6;--ink:#16130C;
+    --blue:#1E45D8;--green:#0E9E6E;--orange:#FF5A1F;--amber:#FFB200;
+    --line:rgba(22,19,12,.16);
+    --display:"Anton",sans-serif;--body:"Archivo",sans-serif;--mono:"Space Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--orange);color:#fff}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);display:inline-flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:24px;height:2px;background:var(--orange)}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:2px solid var(--ink)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:1.5rem;letter-spacing:.02em;text-transform:uppercase}
+  .dot{width:15px;height:15px;border-radius:50%;background:var(--orange);box-shadow:4px 0 0 var(--green),8px 0 0 var(--blue)}
+  .nav-links{display:flex;gap:30px;font-size:.86rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+  .nav-links a{opacity:.7;transition:opacity var(--dur-fast) var(--ease-standard)}
+  .nav-links a:hover{opacity:1}
+  .btn{font-family:var(--body);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;padding:12px 22px;border:2px solid var(--ink);cursor:pointer;display:inline-block;background:var(--ink);color:var(--paper);transition:transform var(--dur-fast) var(--ease-standard),background var(--dur-fast)}
+  .btn:hover{transform:translateY(-2px)}
+  .btn:active{transform:translateY(0) scale(.98);transition-duration:var(--dur-instant)}
+  .btn-o{background:var(--orange);border-color:var(--ink);color:#fff}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper)}
+  .nav-cta{display:flex;gap:12px}
+  .menu-toggle{display:none;background:none;border:2px solid var(--ink);width:44px;height:40px;font-size:1.3rem;line-height:1;cursor:pointer;color:var(--ink)}
+  .m-menu{position:fixed;top:70px;left:0;right:0;z-index:49;background:var(--paper);border-bottom:2px solid var(--ink);
+    padding:14px 0 20px;transform:translateY(-14px);opacity:0;pointer-events:none;
+    transition:opacity var(--dur-base) var(--ease-standard),transform var(--dur-base) var(--ease-standard)}
+  .m-menu.open{opacity:1;transform:none;pointer-events:auto}
+  .m-menu a{display:block;font-family:var(--display);text-transform:uppercase;font-size:1.6rem;padding:10px 32px}
+  .m-menu .btn{margin:12px 32px 0;text-align:center}
+
+  /* hero */
+  .hero{position:relative;padding:74px 0 60px;overflow:hidden}
+  .hero .wrap{position:relative;z-index:2}
+  .blob{position:absolute;border-radius:50%;z-index:0;opacity:1}
+  .blob.b1{width:300px;height:300px;background:var(--blue);left:-80px;bottom:-70px}
+  .blob.b2{width:230px;height:230px;background:var(--green);bottom:40px;right:18%}
+  .hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+  .ph1{font-family:var(--display);text-transform:uppercase;line-height:.86;letter-spacing:.005em;
+    font-size:clamp(3.4rem,13.5vw,11rem);position:relative;margin:26px 0 0;max-width:14ch;text-wrap:balance}
+  .ph1 .ln{display:block;position:relative}
+  .ph1 .accent{color:var(--orange)}
+  .ph1 .ln .off{position:absolute;left:0;top:0;color:var(--blue);z-index:-1;transform:translate(7px,7px);opacity:.92}
+  .ph1 .ln .accent .off{color:var(--green)}
+  .hero-lede{max-width:480px;font-size:1.12rem;margin:26px 0 28px;font-weight:500}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero-col{position:relative;z-index:2}
+  .badge-wrap{position:relative;z-index:1;display:grid;place-items:center}
+  .badge{position:relative;z-index:1;flex:none;width:118px;height:118px;border-radius:50%;background:var(--ink);color:var(--paper);
+    display:grid;place-items:center;text-align:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;
+    text-transform:uppercase;border:2px solid var(--ink);transform:rotate(-9deg);animation:spin 26s linear infinite;cursor:pointer}
+  .badge b{font-family:var(--display);font-size:1.4rem;display:block;letter-spacing:.02em;color:var(--amber)}
+  @keyframes spin{to{transform:rotate(351deg)}}
+
+  /* hero entrance */
+  .reveal-line{overflow:hidden;padding-bottom:.16em;margin-bottom:-.16em}
+  .reveal-line>*{display:inline-block;transform:translateY(110%)}
+  .lit .reveal-line>*{transform:none;transition:transform var(--dur-xslow) var(--ease-out-expo)}
+  .lit .reveal-line:nth-child(2)>*{transition-delay:90ms}
+  .lit .reveal-line:nth-child(3)>*{transition-delay:180ms}
+  .fade{opacity:0;transform:translateY(14px)}
+  .lit .fade{opacity:1;transform:none;transition:opacity var(--dur-slow) var(--ease-decelerate) 360ms,transform var(--dur-slow) var(--ease-decelerate) 360ms}
+
+  /* marquee */
+  .marq{background:var(--ink);color:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);overflow:hidden;white-space:nowrap}
+  .marq-tr{display:inline-flex;gap:34px;padding:12px 0;font-family:var(--display);font-size:1.05rem;letter-spacing:.05em;text-transform:uppercase;animation:slide 26s linear infinite}
+  .marq-tr span{display:inline-flex;gap:34px;align-items:center}
+  .marq i{color:var(--orange);font-style:normal}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  section{padding:96px 0}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:46px;flex-wrap:wrap}
+  .sec-head h2{font-family:var(--display);text-transform:uppercase;font-size:clamp(2.4rem,6vw,4.6rem);line-height:.92;letter-spacing:.01em;margin-top:12px}
+  .sec-head p{max-width:360px;font-weight:500;opacity:.78}
+
+  .js .sr{opacity:0;transform:translateY(26px);transition:opacity var(--dur-slow) var(--ease-decelerate),transform var(--dur-slow) var(--ease-decelerate)}
+  .js .sr.in{opacity:1;transform:none}
+  .js .sr.d1{transition-delay:80ms}.js .sr.d2{transition-delay:160ms}.js .sr.d3{transition-delay:240ms}
+
+  /* events */
+  .events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .ticket{position:relative;background:var(--paper);border:2px solid var(--ink);display:flex;flex-direction:column;cursor:pointer;
+    transition:transform var(--dur-base) var(--ease-standard),box-shadow var(--dur-base) var(--ease-standard);box-shadow:6px 6px 0 var(--ink)}
+  .ticket:hover,.ticket:focus-visible{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--accent);outline:none}
+  .ticket:focus-visible{box-shadow:10px 10px 0 var(--accent),0 0 0 3px var(--accent)}
+  .t-top{background:var(--accent);color:#fff;padding:10px 22px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+  .t-body{padding:22px}
+  .t-name{font-family:var(--display);text-transform:uppercase;font-size:2rem;line-height:.92;letter-spacing:.01em}
+  .t-sub{font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;opacity:.6;margin:8px 0 14px}
+  .t-venue{font-size:.95rem;font-weight:500;opacity:.82;margin-bottom:18px}
+  .t-headliner{display:flex;align-items:baseline;gap:7px;color:var(--accent);font-weight:700;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;margin:0 0 12px}
+  .t-headliner b{font-family:var(--display);font-size:1.1rem;letter-spacing:.02em;color:var(--ink);font-weight:400;text-transform:uppercase}
+  .t-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:20px}
+  .tag{font-family:var(--mono);font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;padding:5px 10px;border:1.5px solid var(--ink);opacity:.85}
+  .t-foot{display:flex;justify-content:space-between;align-items:center;border-top:2px dashed var(--ink);padding-top:16px}
+  .t-price{font-family:var(--mono);font-weight:700;font-size:.95rem}
+  .t-price small{display:block;opacity:.55;font-size:.66rem;letter-spacing:.08em}
+  .t-link{font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);display:inline-flex;gap:6px;transition:gap var(--dur-fast)}
+  .ticket:hover .t-link{gap:11px}
+
+  .pass{margin-top:22px;border:2px solid var(--ink);background:var(--amber);padding:26px 30px;display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap;box-shadow:6px 6px 0 var(--ink)}
+  .pass h3{font-family:var(--display);text-transform:uppercase;font-size:1.7rem;letter-spacing:.01em}
+  .pass p{font-weight:500;font-size:.95rem;max-width:520px;margin-top:4px}
+
+  /* gallery */
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:12px;grid-auto-flow:dense}
+  .tile{position:relative;overflow:hidden;border:2px solid var(--ink);cursor:pointer}
+  .tile .bg{position:absolute;inset:0;transition:transform var(--dur-slow) var(--ease-standard)}
+  .tile:hover .bg,.tile:focus-visible .bg{transform:scale(1.06)}
+  .tile:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+  .tile .ov{position:absolute;inset:0;display:flex;align-items:flex-end;padding:16px;background:linear-gradient(180deg,transparent 45%,rgba(22,19,12,.8))}
+  .tile .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;opacity:.85;display:block;margin-bottom:3px}
+  .tile .v{font-family:var(--display);text-transform:uppercase;font-size:1.05rem;color:#fff;line-height:1}
+  .tile .frame{position:absolute;top:10px;right:10px;font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;color:#fff;border:1.5px solid rgba(255,255,255,.6);padding:2px 8px;background:rgba(22,19,12,.25)}
+  .w2{grid-column:span 2}.h2{grid-row:span 2}
+  .g-frontier{background:linear-gradient(150deg,#a8390c,var(--orange) 55%,var(--amber))}
+  .g-gold{background:linear-gradient(150deg,#7a5a0c,var(--amber) 55%,#ffd766)}
+  .g-cold{background:linear-gradient(150deg,#10307f,var(--blue) 55%,#9fc0ff)}
+  .g-suit{background:linear-gradient(150deg,#0c2c20,var(--green) 60%,#16130C)}
+  .gal-note{margin-top:18px;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;opacity:.55;text-align:center}
+
+  /* services */
+  .services{background:var(--ink);color:var(--paper)}
+  .services .eyebrow{color:var(--amber)}
+  .services .sec-head p{opacity:.7}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .svc{border:2px solid var(--paper);padding:26px;transition:transform var(--dur-base) var(--ease-standard)}
+  .svc:hover{transform:translateY(-4px)}
+  .svc .num{font-family:var(--display);font-size:1.6rem;color:var(--orange);margin-bottom:8px}
+  .svc h3{font-family:var(--display);text-transform:uppercase;font-size:1.25rem;letter-spacing:.01em;margin-bottom:8px}
+  .svc p{font-size:.9rem;opacity:.78;font-weight:500}
+
+  /* stats */
+  .stats{background:var(--blue);color:#fff;padding:60px 0}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+  .stat .num{font-family:var(--display);font-size:clamp(2.6rem,6vw,4rem);line-height:1}
+  .stat .lab{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.86;margin-top:6px}
+  .stat+.stat{border-left:2px solid rgba(255,255,255,.3)}
+
+  /* about */
+  .about-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .about h2{font-family:var(--display);text-transform:uppercase;font-size:clamp(2.2rem,5vw,3.6rem);line-height:.94;margin:14px 0 22px}
+  .about p{font-weight:500;opacity:.85;margin-bottom:16px}
+  .about .quote{font-family:var(--display);text-transform:uppercase;font-size:1.5rem;line-height:1;border-left:5px solid var(--orange);padding-left:18px;margin-top:24px}
+  .about-card{border:2px solid var(--ink);box-shadow:8px 8px 0 var(--ink);aspect-ratio:4/5;position:relative;overflow:hidden;background:var(--green);display:flex;align-items:flex-end;padding:30px}
+  .about-card .sun{position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:var(--amber)}
+  .about-card .cap{position:relative;color:var(--paper)}
+  .about-card .cap .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+  .about-card .cap .v{font-family:var(--display);text-transform:uppercase;font-size:1.7rem;line-height:.95;margin-top:6px}
+
+  /* cta */
+  .cta{background:var(--orange);color:#fff;text-align:center}
+  .cta h2{font-family:var(--display);text-transform:uppercase;font-size:clamp(2.6rem,8vw,6rem);line-height:.9;letter-spacing:.01em;margin-bottom:16px}
+  .cta p{max-width:460px;margin:0 auto 28px;font-weight:600;font-size:1.05rem}
+  .signup{display:flex;gap:10px;max-width:460px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+  .signup input{flex:1;min-width:220px;font-family:var(--body);font-weight:600;font-size:.95rem;padding:13px 18px;border:2px solid var(--ink);background:var(--paper);color:var(--ink)}
+  .signup input:focus{outline:3px solid var(--ink);outline-offset:2px}
+  .cta .btn{background:var(--ink);color:#fff}
+  .cta .ok{margin-top:16px;font-family:var(--mono);font-size:.8rem;letter-spacing:.05em;opacity:0;transition:opacity var(--dur-base)}
+  .cta .ok.show{opacity:1}
+
+  /* footer */
+  footer{background:var(--ink);color:var(--paper);padding:64px 0 34px}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;margin-bottom:44px}
+  .foot-blurb{opacity:.66;font-size:.9rem;max-width:280px;margin-top:14px;font-weight:500}
+  .foot-col h4{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
+  .foot-col a{display:block;opacity:.74;font-size:.92rem;margin-bottom:10px;font-weight:500;transition:opacity var(--dur-fast);cursor:pointer}
+  .foot-col a:hover{opacity:1}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;border-top:2px solid rgba(244,241,230,.2);padding-top:24px;flex-wrap:wrap;gap:12px}
+  .foot-bottom p{font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;opacity:.55}
+
+  /* ---------- COUNTDOWN ---------- */
+  .countdown{background:var(--paper-2);border-bottom:2px solid var(--ink)}
+  .cd-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;flex-wrap:wrap}
+  .cd-left{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .cd-kick{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+  .cd-name{font-family:var(--display);text-transform:uppercase;font-size:1.5rem;line-height:1;letter-spacing:.01em}
+  .cd-name small{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;opacity:.6;margin-top:4px;text-transform:none}
+  .cd-clock{display:flex;gap:10px}
+  .cd-unit{background:var(--ink);color:var(--paper);min-width:62px;text-align:center;padding:10px 8px}
+  .cd-unit b{display:block;font-family:var(--display);font-size:1.7rem;line-height:1;letter-spacing:.02em}
+  .cd-unit span{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+
+  /* ---------- LINEUP (in modal) ---------- */
+  .m-lineup{margin:6px 0 22px;border:2px solid var(--ink)}
+  .lu-row{display:flex;align-items:center;gap:12px;padding:11px 14px;border-bottom:1.5px solid var(--line)}
+  .lu-row:last-child{border-bottom:0}
+  .lu-row.star{background:rgba(255,178,0,.14)}
+  .lu-row.star .lu-name::before{content:"★ ";color:var(--accent);font-size:.8em}
+  .lu-time{font-family:var(--mono);font-size:.72rem;font-weight:700;color:var(--accent);white-space:nowrap;min-width:66px}
+  .lu-name{font-family:var(--display);text-transform:uppercase;font-size:1.05rem;letter-spacing:.02em;line-height:1}
+  .lu-role{font-family:var(--mono);font-size:.64rem;letter-spacing:.05em;opacity:.6;text-transform:uppercase;margin-left:auto;text-align:right}
+
+  /* ---------- SPONSORS ---------- */
+  .sponsors{background:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+  .sp-inner{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:34px 0;flex-wrap:wrap}
+  .sp-lab{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.6;flex:none}
+  .sp-logos{display:flex;align-items:center;gap:14px;flex-wrap:wrap;flex:1;justify-content:center}
+  .sp-logo{font-family:var(--display);text-transform:uppercase;font-size:1.25rem;letter-spacing:.04em;opacity:.42;
+    border:2px solid var(--ink);padding:8px 16px;transition:opacity var(--dur-base) var(--ease-standard)}
+  .sp-logo:hover{opacity:.85}
+  .sp-cta{font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--blue);white-space:nowrap;cursor:pointer}
+
+  /* ---------- THE TIMBUKTU STANDARD ---------- */
+  .std-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(22,19,12,.16);border:2px solid var(--ink)}
+  .std{background:var(--paper);padding:26px 22px}
+  .std .n{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;color:var(--blue);margin-bottom:16px}
+  .std h3{font-family:var(--display);text-transform:uppercase;font-size:1.25rem;letter-spacing:.01em;margin-bottom:9px}
+  .std p{font-size:.86rem;font-weight:500;opacity:.78;line-height:1.45}
+  .std-vision{margin:32px auto 0;max-width:840px;text-align:center;font-family:var(--display);text-transform:uppercase;
+    font-size:clamp(1.2rem,2.6vw,1.85rem);line-height:1.12;letter-spacing:.01em}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{max-width:840px;margin:0 auto;border-top:2px solid var(--ink)}
+  .faq{border-bottom:2px solid var(--ink)}
+  .faq-q{width:100%;background:none;border:0;cursor:pointer;text-align:left;display:flex;align-items:center;gap:16px;
+    padding:22px 4px;font-family:var(--display);text-transform:uppercase;font-size:1.25rem;letter-spacing:.01em;color:var(--ink)}
+  .faq-q .ix{margin-left:auto;font-size:1.4rem;transition:transform var(--dur-base) var(--ease-standard);flex:none}
+  .faq.open .faq-q .ix{transform:rotate(45deg)}
+  .faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows var(--dur-base) var(--ease-standard)}
+  .faq.open .faq-a{grid-template-rows:1fr}
+  .faq-a>div{overflow:hidden}
+  .faq-a p{padding:0 4px 22px;font-weight:500;opacity:.82;max-width:680px}
+
+  /* ---------- TABLES / GROUP BOOKING ---------- */
+  .tables{background:var(--ink);color:var(--paper)}
+  .tables .eyebrow{color:var(--amber)}
+  .tables-inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+  .tables h2{font-family:var(--display);text-transform:uppercase;font-size:clamp(2rem,4.5vw,3.2rem);line-height:.94;margin:14px 0 18px}
+  .tables-lead{opacity:.8;font-weight:500;margin-bottom:20px;max-width:380px}
+  .tables-perks{list-style:none;display:grid;gap:10px}
+  .tables-perks li{font-size:.92rem;opacity:.85;padding-left:24px;position:relative}
+  .tables-perks li::before{content:"◆";position:absolute;left:0;color:var(--amber);font-size:.7rem;top:3px}
+  .form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .form .full{grid-column:1/-1}
+  .field label{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;opacity:.7;margin-bottom:7px}
+  .field input,.field select,.field textarea{width:100%;font-family:var(--body);font-weight:500;font-size:.95rem;
+    padding:12px 14px;border:2px solid var(--paper);background:transparent;color:var(--paper)}
+  .field select option{color:var(--ink)}
+  .field textarea{resize:vertical;min-height:84px}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--amber);outline-offset:1px}
+  .form .btn-o{justify-self:start}
+
+  /* WhatsApp button */
+  .wa-btn{background:#1FA855;border-color:var(--ink);color:#fff;display:inline-flex;align-items:center;gap:8px}
+  .wa-btn:hover{background:#178043}
+
+  /* socials */
+  .socials{display:flex;gap:12px}
+  .socials a{width:40px;height:40px;border:2px solid rgba(244,241,230,.3);border-radius:50%;display:grid;place-items:center;opacity:.85;transition:all var(--dur-fast) var(--ease-standard);color:var(--paper)}
+  .socials a:hover{opacity:1;border-color:var(--amber);transform:translateY(-2px)}
+  .socials svg{width:18px;height:18px;fill:currentColor}
+
+  /* ---------- STICKY MOBILE TICKET BAR ---------- */
+  .sticky-buy{position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;
+    background:var(--ink);color:var(--paper);border-top:2px solid var(--orange);
+    padding:12px 18px calc(12px + env(safe-area-inset-bottom));align-items:center;justify-content:space-between;gap:14px;
+    transform:translateY(110%);transition:transform var(--dur-base) var(--ease-out-expo)}
+  .sticky-buy.show{transform:none}
+  .sticky-buy .sb-info b{font-family:var(--display);text-transform:uppercase;font-size:1rem;letter-spacing:.01em;display:block;line-height:1.1}
+  .sticky-buy .sb-info span{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;opacity:.75}
+  .sticky-buy .btn-o{flex:none}
+
+  /* ---------- BACK TO TOP ---------- */
+  .to-top{position:fixed;right:24px;bottom:24px;z-index:88;width:48px;height:48px;border:2px solid var(--ink);
+    background:var(--ink);color:var(--paper);font-size:1.3rem;line-height:1;cursor:pointer;display:grid;place-items:center;
+    box-shadow:4px 4px 0 var(--orange);opacity:0;transform:translateY(12px);pointer-events:none;
+    transition:opacity var(--dur-base) var(--ease-standard),transform var(--dur-base) var(--ease-standard),background var(--dur-fast),box-shadow var(--dur-fast)}
+  .to-top.show{opacity:1;transform:none;pointer-events:auto}
+  .to-top:hover{background:var(--orange);color:#fff}
+  .to-top:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+
+  /* ---------- MODAL ---------- */
+  .backdrop{position:fixed;inset:0;z-index:100;background:rgba(22,19,12,.62);display:none;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity var(--dur-base) var(--ease-standard)}
+  .backdrop.show{opacity:1}
+  .modal{background:var(--paper);border:2px solid var(--ink);box-shadow:12px 12px 0 var(--ink);width:100%;max-width:560px;max-height:90vh;overflow:auto;
+    transform:translateY(10px) scale(.97);transition:transform var(--dur-slow) var(--ease-out-expo)}
+  .backdrop.show .modal{transform:none}
+  .m-head{position:relative;padding:26px 28px 20px;border-bottom:2px solid var(--ink)}
+  .m-head .accentbar{position:absolute;top:0;left:0;right:0;height:8px;background:var(--accent)}
+  .m-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+  .m-title{font-family:var(--display);text-transform:uppercase;font-size:2.1rem;line-height:.92}
+  .m-meta{font-size:.92rem;font-weight:500;opacity:.78;margin-top:8px}
+  .m-close{position:absolute;top:18px;right:18px;width:38px;height:38px;border:2px solid var(--ink);background:var(--paper);font-size:1.1rem;cursor:pointer;line-height:1;color:var(--ink);transition:background var(--dur-fast),transform var(--dur-fast)}
+  .m-close:hover{background:var(--ink);color:var(--paper)}
+  .m-close:active{transform:scale(.94)}
+  .m-body{padding:24px 28px 28px}
+  .m-desc{font-weight:500;opacity:.84;margin-bottom:20px;font-size:.96rem}
+  .m-tierhd{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.6;margin-bottom:12px}
+  .tier{display:flex;align-items:center;gap:14px;border:2px solid var(--ink);padding:14px 16px;margin-bottom:10px;cursor:pointer;background:var(--paper);transition:background var(--dur-fast),transform var(--dur-fast)}
+  .tier:hover{transform:translateX(3px)}
+  .tier.sel{background:var(--ink);color:var(--paper)}
+  .tier .rad{width:18px;height:18px;border:2px solid currentColor;border-radius:50%;flex:none;position:relative}
+  .tier.sel .rad::after{content:"";position:absolute;inset:3px;background:var(--accent);border-radius:50%}
+  .tier .ti{flex:1}
+  .tier .tn{font-family:var(--display);text-transform:uppercase;font-size:1.15rem;letter-spacing:.02em;line-height:1}
+  .tier .td{font-size:.78rem;font-weight:500;opacity:.7;margin-top:3px}
+  .tier.sel .td{opacity:.85}
+  .tier .tp{font-family:var(--mono);font-weight:700;font-size:.95rem;white-space:nowrap}
+  .m-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:20px;padding-top:18px;border-top:2px dashed var(--ink);flex-wrap:wrap}
+  .qty{display:flex;align-items:center;gap:0;border:2px solid var(--ink)}
+  .qty button{width:40px;height:40px;background:var(--paper);border:0;font-size:1.2rem;cursor:pointer;color:var(--ink);transition:background var(--dur-fast)}
+  .qty button:hover{background:var(--paper-2)}
+  .qty span{min-width:40px;text-align:center;font-family:var(--mono);font-weight:700}
+  .m-total{font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;opacity:.7}
+  .m-total b{display:block;font-size:1.25rem;color:var(--ink);opacity:1;letter-spacing:0}
+  .m-buy{flex:1;min-width:160px;text-align:center}
+
+  /* lightbox */
+  .lb-img{aspect-ratio:16/10;position:relative}
+  .lb-cap{padding:18px 22px;border-top:2px solid var(--ink)}
+  .lb-cap .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--orange)}
+  .lb-cap .v{font-family:var(--display);text-transform:uppercase;font-size:1.5rem;margin-top:4px;line-height:1}
+  .lb-cap small{display:block;font-family:var(--mono);font-size:.7rem;opacity:.55;margin-top:8px}
+
+  /* toast */
+  .toasts{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:120;display:flex;flex-direction:column;gap:10px;align-items:center;pointer-events:none}
+  .toast{background:var(--ink);color:var(--paper);border:2px solid var(--ink);box-shadow:5px 5px 0 var(--orange);padding:13px 20px;font-weight:600;font-size:.9rem;
+    transform:translateY(16px);opacity:0;transition:transform var(--dur-base) var(--ease-out-expo),opacity var(--dur-base)}
+  .toast .acc{color:var(--amber)}
+  .toast.show{transform:none;opacity:1}
+
+  @media(max-width:900px){
+    .nav-links{display:none}.nav-cta{display:none}.menu-toggle{display:block}
+    .events-grid{grid-template-columns:1fr}
+    .svc-grid{grid-template-columns:1fr 1fr}
+    .stats-grid{grid-template-columns:1fr 1fr;gap:34px 24px}
+    .stat:nth-child(3){border-left:0}
+    .about-inner{grid-template-columns:1fr;gap:34px}
+    .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+    .badge{width:96px;height:96px}
+    .tables-inner{grid-template-columns:1fr;gap:30px}
+    .cd-inner{justify-content:flex-start}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 20px}
+    section{padding:64px 0}
+    .hero{padding:44px 0 44px}
+    .hero-top{flex-direction:column-reverse;align-items:flex-start;gap:8px}
+    .ph1{font-size:clamp(3rem,17vw,5.4rem);margin-top:16px;max-width:100%;line-height:.88}
+    .ph1 .ln .off{transform:translate(4px,4px)}
+    .badge-wrap{align-self:flex-end}
+    .badge{width:88px;height:88px;font-size:.56rem}
+    .badge b{font-size:1.1rem}
+    .blob.b1{width:190px;height:190px;left:-70px;bottom:-50px}
+    .blob.b2{width:140px;height:140px;bottom:8px;right:6%}
+    .hero-lede{font-size:1.02rem;margin:20px 0 24px}
+    .hero-actions .btn{flex:1;text-align:center}
+    .sec-head{margin-bottom:34px}
+    .svc-grid{grid-template-columns:1fr}
+    .foot-top{grid-template-columns:1fr 1fr}
+    .pass{flex-direction:column;align-items:flex-start}
+    .m-title{font-size:1.7rem}
+    .m-foot{flex-direction:column;align-items:stretch}
+    .m-buy{width:100%}
+    .sticky-buy{display:flex}
+    .to-top{right:16px;bottom:calc(86px + env(safe-area-inset-bottom));width:44px;height:44px}
+    .cd-clock{gap:7px}
+    .cd-unit{min-width:52px;padding:8px 5px}
+    .cd-unit b{font-size:1.4rem}
+    .form{grid-template-columns:1fr}
+    .sp-inner{justify-content:center;text-align:center}
+    body{padding-bottom:74px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+    .reveal-line>*{transform:none}.fade{opacity:1;transform:none}.js .sr{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap"><nav>
+    <a class="brand" href="#top"><span class="dot"></span>TIMBUKTU</a>
+    <div class="nav-links"><a href="#events">Events</a><a href="#gallery">Gallery</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+    <div class="nav-cta"><a href="#services" class="btn btn-ghost">Plan event</a><a href="#events" class="btn btn-o">Get tickets</a></div>
+    <button class="menu-toggle" id="menuBtn" aria-label="Open menu" aria-expanded="false">≡</button>
+  </nav></div>
+</header>
+<div class="m-menu" id="mMenu">
+  <a href="#events">Events</a><a href="#gallery">Gallery</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
+  <a href="#events" class="btn btn-o">Get tickets</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <span class="blob b1"></span><span class="blob b2"></span>
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="hero-col">
+        <span class="eyebrow fade">The 2026 Season · Three worlds, one journey</span>
+        <h1 class="ph1">
+          <span class="ln reveal-line"><span>The</span></span>
+          <span class="ln reveal-line"><span>Crossroads<span class="off" aria-hidden="true">Crossroads</span></span></span>
+          <span class="ln reveal-line"><span class="accent">Of Sound<span class="off" aria-hidden="true">Of Sound</span></span></span>
+        </h1>
+      </div>
+      <div class="badge-wrap fade">
+        <div class="badge" id="badge" role="button" tabindex="0" aria-label="View the Season Pass"><span>The 2026<b>SEASON</b>Pass live</span></div>
+      </div>
+    </div>
+    <p class="hero-lede fade">Timbuktu Entertainment produces concerts and live events across Tanzania. Three nights make up the 2026 season — and we run every one end to end.</p>
+    <div class="hero-actions fade">
+      <a href="#events" class="btn btn-o">See the season</a>
+      <a href="#services" class="btn btn-ghost">Work with us</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marq"><div class="marq-tr">
+  <span>The Wild Wild East <i>★</i> Gold Rush <i>★</i> It's A Cold Summer <i>★</i> Suit &amp; Tie <i>★</i> Season Pass On Sale <i>★</i></span>
+  <span aria-hidden="true">The Wild Wild East <i>★</i> Gold Rush <i>★</i> It's A Cold Summer <i>★</i> Suit &amp; Tie <i>★</i> Season Pass On Sale <i>★</i></span>
+</div></div>
+
+<!-- COUNTDOWN -->
+<div class="countdown" id="countdown"><div class="wrap"><div class="cd-inner">
+  <div class="cd-left">
+    <div><div class="cd-kick">Next up</div><div class="cd-name" id="cdName">—<small id="cdMeta"></small></div></div>
+  </div>
+  <div class="cd-clock" id="cdClock" aria-live="off">
+    <div class="cd-unit"><b id="cdD">00</b><span>Days</span></div>
+    <div class="cd-unit"><b id="cdH">00</b><span>Hrs</span></div>
+    <div class="cd-unit"><b id="cdM">00</b><span>Min</span></div>
+    <div class="cd-unit"><b id="cdS">00</b><span>Sec</span></div>
+  </div>
+</div></div></div>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow sr">The 2026 Season</span><h2 class="sr">Four nights,<br>one season</h2></div><p class="sr d1">Tap any night for full details and tickets — Early Bird, VIP &amp; VVIP. Or lock the whole set with a Season Pass.</p></div>
+    <div class="events-grid">
+      <article class="ticket sr" style="--accent:var(--orange)" data-event="wild" role="button" tabindex="0" aria-label="The Wild Wild East — view tickets">
+        <div class="t-top"><span>Sat · 04 Jul 2026</span><span>Arusha</span></div>
+        <div class="t-body"><div class="t-name">The Wild Wild East</div><div class="t-sub">"Cowboy &amp; Cowgirl"</div>
+        <div class="t-headliner">★ Headlining <b>Uncle Waffles</b></div>
+        <div class="t-venue">Open-air, safari-country setting</div>
+        <div class="t-tags"><span class="tag">No hat, no entry</span><span class="tag">Afro House</span><span class="tag">Amapiano</span></div>
+        <div class="t-foot"><div class="t-price">from TSh 25,000<small>Early bird</small></div><span class="t-link">Tickets →</span></div></div>
+      </article>
+      <article class="ticket sr d1" style="--accent:var(--amber)" data-event="gold" role="button" tabindex="0" aria-label="Gold Rush — view tickets">
+        <div class="t-top"><span>Sat · 01 Aug 2026</span><span>Arusha</span></div>
+        <div class="t-body"><div class="t-name">Gold Rush</div><div class="t-sub">"Strike It Rich"</div>
+        <div class="t-headliner">★ Headlining <b>Maphorisa b2b Kabza</b></div>
+        <div class="t-venue">The goldfields after dark</div>
+        <div class="t-tags"><span class="tag">Frontier</span><span class="tag">Afro House</span><span class="tag">Amapiano</span></div>
+        <div class="t-foot"><div class="t-price">from TSh 30,000<small>Early bird</small></div><span class="t-link">Tickets →</span></div></div>
+      </article>
+      <article class="ticket sr" style="--accent:var(--blue)" data-event="cold" role="button" tabindex="0" aria-label="It's A Cold Summer — view tickets">
+        <div class="t-top"><span>Sat · 29 Aug 2026</span><span>Bongoyo Is.</span></div>
+        <div class="t-body"><div class="t-name">It's A Cold Summer</div><div class="t-sub">"Bongoyo Takeover"</div>
+        <div class="t-headliner">★ Headlining <b>Wizkid</b></div>
+        <div class="t-venue">Bongoyo Island, Dar — full island buyout</div>
+        <div class="t-tags"><span class="tag">All-white</span><span class="tag">Sunset house</span><span class="tag">Boat transfer</span></div>
+        <div class="t-foot"><div class="t-price">from TSh 80,000<small>Early bird</small></div><span class="t-link">Tickets →</span></div></div>
+      </article>
+      <article class="ticket sr d1" style="--accent:var(--green)" data-event="suit" role="button" tabindex="0" aria-label="Suit and Tie — view tickets">
+        <div class="t-top"><span>Sat · 26 Sep 2026</span><span>Dar es Salaam</span></div>
+        <div class="t-body"><div class="t-name">Suit &amp; Tie</div><div class="t-sub">"A 9–5 Groove Session"</div>
+        <div class="t-headliner">★ Headlining <b>Diamond Platnumz</b></div>
+        <div class="t-venue">The season finale</div>
+        <div class="t-tags"><span class="tag">Corporate-sexy</span><span class="tag">Deep house</span><span class="tag">R&amp;B</span></div>
+        <div class="t-foot"><div class="t-price">from TSh 35,000<small>Early bird</small></div><span class="t-link">Tickets →</span></div></div>
+      </article>
+    </div>
+    <div class="pass sr"><div><h3>The Season Pass</h3><p>One ticket to every night of the 2026 season — at a discount. Attend all four, earn your name on the wall at Suit &amp; Tie.</p></div><button class="btn" id="passBtn">Get the pass →</button></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow sr">Moments</span><h2 class="sr">Inside the nights</h2></div><p class="sr d1">Tap a tile to enlarge. From the dust of Arusha to the sand at Bongoyo.</p></div>
+    <div class="gal-grid">
+      <div class="tile w2 h2 sr" role="button" tabindex="0" data-g="frontier" data-k="Wild Wild East · Arusha" data-v="Electronic rodeo"><div class="bg g-frontier"></div><span class="frame">◳ photo</span><div class="ov"><div><span class="k">Wild Wild East · Arusha</span><span class="v">Electronic rodeo</span></div></div></div>
+      <div class="tile h2 sr d1" role="button" tabindex="0" data-g="gold" data-k="Gold Rush" data-v="Strike it rich"><div class="bg g-gold"></div><span class="frame">◳ photo</span><div class="ov"><div><span class="k">Gold Rush</span><span class="v">Strike it rich</span></div></div></div>
+      <div class="tile sr" role="button" tabindex="0" data-g="cold" data-k="Cold Summer" data-v="Ice bar"><div class="bg g-cold"></div><span class="frame">◳ photo</span><div class="ov"><div><span class="k">Cold Summer</span><span class="v">Ice bar</span></div></div></div>
+      <div class="tile sr d1" role="button" tabindex="0" data-g="suit" data-k="Suit &amp; Tie" data-v="Clocked in"><div class="bg g-suit"></div><span class="frame">◳ photo</span><div class="ov"><div><span class="k">Suit &amp; Tie</span><span class="v">Clocked in</span></div></div></div>
+      <div class="tile w2 sr" role="button" tabindex="0" data-g="cold" data-k="Cold Summer · Bongoyo" data-v="All-white, golden hour"><div class="bg g-cold"></div><span class="frame">◳ photo</span><div class="ov"><div><span class="k">Cold Summer · Bongoyo</span><span class="v">All-white, golden hour</span></div></div></div>
+      <div class="tile sr" role="button" tabindex="0" data-g="frontier" data-k="Wild Wild East" data-v="Saloon bar"><div class="bg g-frontier"></div><span class="frame">◳ photo</span><div class="ov"><div><span class="k">Wild Wild East</span><span class="v">Saloon bar</span></div></div></div>
+      <div class="tile sr d1" role="button" tabindex="0" data-g="gold" data-k="Gold Rush" data-v="DJ showdown"><div class="bg g-gold"></div><span class="frame">◳ photo</span><div class="ov"><div><span class="k">Gold Rush</span><span class="v">DJ showdown</span></div></div></div>
+      <div class="tile w2 sr" role="button" tabindex="0" data-g="suit" data-k="Suit &amp; Tie · Dar" data-v="Slow jams to close"><div class="bg g-suit"></div><span class="frame">◳ photo</span><div class="ov"><div><span class="k">Suit &amp; Tie · Dar</span><span class="v">Slow jams to close</span></div></div></div>
+    </div>
+    <p class="gal-note">↳ Placeholder tiles — drop your real event photos straight into this grid.</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow sr">What we do</span><h2 class="sr">First idea to<br>final encore</h2></div><p class="sr d1">We don't just book the talent. We design, produce, and run the whole night.</p></div>
+    <div class="svc-grid">
+      <div class="svc sr"><div class="num">01</div><h3>Concerts &amp; tours</h3><p>Headline shows and multi-city tours, artist liaison to front-of-house.</p></div>
+      <div class="svc sr d1"><div class="num">02</div><h3>Festival production</h3><p>Multi-stage festivals end to end — site, scheduling, safety, crowd flow.</p></div>
+      <div class="svc sr d2"><div class="num">03</div><h3>Private &amp; corporate</h3><p>Brand launches, galas, and parties with full production polish.</p></div>
+      <div class="svc sr"><div class="num">04</div><h3>Artist booking</h3><p>Local and continental headliners, matched to your crowd and budget.</p></div>
+      <div class="svc sr d1"><div class="num">05</div><h3>Stage &amp; technical</h3><p>Sound, lighting, LED, and rigging from a crew that moves rooms.</p></div>
+      <div class="svc sr d2"><div class="num">06</div><h3>Marketing &amp; ticketing</h3><p>Campaigns, content, and a ticketing platform that fills the room.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats"><div class="wrap"><div class="stats-grid">
+  <div class="stat"><div class="num" data-count="120" data-suffix="+">0</div><div class="lab">Events staged</div></div>
+  <div class="stat"><div class="num" data-count="40">0</div><div class="lab">Artists booked</div></div>
+  <div class="stat"><div class="num" data-count="9">0</div><div class="lab">Cities toured</div></div>
+  <div class="stat"><div class="num" data-count="250" data-suffix="K">0</div><div class="lab">Tickets sold</div></div>
+</div></div></div>
+
+<!-- SPONSORS -->
+<div class="sponsors"><div class="wrap"><div class="sp-inner">
+  <span class="sp-lab">Partners &amp; sponsors</span>
+  <div class="sp-logos">
+    <span class="sp-logo">CRDB Bank</span>
+    <span class="sp-logo">NMB</span>
+    <span class="sp-logo">TBL</span>
+    <span class="sp-logo">Vodacom</span>
+    <span class="sp-logo">Azam</span>
+  </div>
+  <a class="sp-cta" id="sponsorCta">Become a sponsor →</a>
+</div></div></div>
+
+<!-- ABOUT / OUR STORY -->
+<section id="about"><div class="wrap"><div class="about-inner">
+  <div class="sr"><span class="eyebrow">Our story</span><h2>The city where<br>the world met</h2>
+    <p>Centuries ago, Timbuktu stood at the crossroads of the world. Merchants crossed deserts. Scholars crossed continents. Artists shared stories — and history was written because remarkable people gathered in one place.</p>
+    <p>That spirit guides everything we do. Every generation deserves its own crossroads: a place to meet, connect, celebrate, and make memories that last long after the music ends. We exist to create those moments — not just events, but nights worth remembering.</p>
+    <p class="quote">Where the world meets.</p>
+  </div>
+  <div class="about-card sr d1"><span class="sun"></span><div class="cap"><span class="k">Est. 2026 · One umbrella brand</span><span class="v">Where the<br>world meets.</span></div></div>
+</div></div></section>
+
+<!-- THE TIMBUKTU STANDARD -->
+<section id="standard"><div class="wrap">
+  <div class="sec-head"><div><span class="eyebrow sr">The Timbuktu standard</span><h2 class="sr">Five principles,<br>every night</h2></div><p class="sr d1">What every Timbuktu experience is built on — from the first announcement to the last photograph.</p></div>
+  <div class="std-grid sr">
+    <div class="std"><div class="n">01</div><h3>Anticipation</h3><p>Great events begin long before the doors open. We build excitement, conversation, and expectation.</p></div>
+    <div class="std"><div class="n">02</div><h3>Atmosphere</h3><p>Lighting, sound, design, energy — every venue is transformed into an experience where everything works together.</p></div>
+    <div class="std"><div class="n">03</div><h3>Connection</h3><p>Our events create room for people to meet, collaborate, and belong.</p></div>
+    <div class="std"><div class="n">04</div><h3>Story</h3><p>Every event has a defining moment people remember — the performance, the reveal, the surprise, the feeling.</p></div>
+    <div class="std"><div class="n">05</div><h3>Legacy</h3><p>When the night ends, the story begins. The photographs, the friendships, the memories. That's what lasts.</p></div>
+  </div>
+  <p class="std-vision sr">Our vision — to become Africa's most respected entertainment company, creating experiences that shape culture, inspire connection, and leave a legacy for generations.</p>
+</div></section>
+
+<!-- FAQ -->
+<section id="faq"><div class="wrap">
+  <div class="sec-head"><div><span class="eyebrow sr">Good to know</span><h2 class="sr">Questions,<br>answered</h2></div><p class="sr d1">The things people DM us about most. Anything else — reach out on WhatsApp.</p></div>
+  <div class="faq-list sr">
+    <div class="faq"><button class="faq-q">Who can attend &amp; what do I bring? <span class="ix">+</span></button><div class="faq-a"><div><p>All events are strictly 18+ — bring a valid ID matching your ticket. Have your QR ticket ready on your phone (screenshots are fine). Some nights have a dress code; check your event card.</p></div></div></div>
+    <div class="faq"><button class="faq-q">How do I pay? <span class="ix">+</span></button><div class="faq-a"><div><p>Tickets are sold in Tanzanian Shillings. At checkout you'll be able to pay by mobile money (M-Pesa, Tigo Pesa, Airtel Money, HaloPesa) or card. You'll receive your QR ticket by SMS and email instantly.</p></div></div></div>
+    <div class="faq"><button class="faq-q">What does the Cold Summer boat transfer cover? <span class="ix">+</span></button><div class="faq-a"><div><p>Every It's A Cold Summer ticket includes a return boat transfer to Bongoyo Island with a welcome drink on board. Boats run on a published schedule from a Dar pick-up point — last return is after the closing set. You must travel on a Timbuktu boat; private boats aren't permitted for the buyout.</p></div></div></div>
+    <div class="faq"><button class="faq-q">Is the dress code enforced? <span class="ix">+</span></button><div class="faq-a"><div><p>Yes — it's part of the experience. "No hat, no entry" at Wild Wild East, all-white or icy blue at Cold Summer, corporate-but-sexy at Suit &amp; Tie. Guests who don't meet the code may be turned away without a refund, so dress the part.</p></div></div></div>
+    <div class="faq"><button class="faq-q">Can I get a refund or transfer my ticket? <span class="ix">+</span></button><div class="faq-a"><div><p>Tickets are non-refundable but fully transferable up to 24 hours before doors — just pass on your QR or re-assign it from your confirmation. If an event is rescheduled, your ticket stays valid for the new date or you can request a refund.</p></div></div></div>
+    <div class="faq"><button class="faq-q">How does the Season Pass work? <span class="ix">+</span></button><div class="faq-a"><div><p>One pass covers all four 2026 nights at a discount versus buying separately, in Standard, VIP, or VVIP tiers. Attend all four and you earn a closing perk at the Suit &amp; Tie finale. Passes are limited and transfer the same way as single tickets.</p></div></div></div>
+  </div>
+</div></section>
+
+<!-- TABLES / GROUP BOOKING -->
+<section class="tables" id="tables"><div class="wrap"><div class="tables-inner">
+  <div class="sr">
+    <span class="eyebrow">Tables &amp; groups</span>
+    <h2>Book a table,<br>bring the crew</h2>
+    <p class="tables-lead">VVIP tables, bottle service, and group rates for 6 or more. Tell us the night and the size — we'll come back with options and a hold.</p>
+    <ul class="tables-perks">
+      <li>Reserved table &amp; dedicated host</li>
+      <li>Bottle service &amp; fast-track entry</li>
+      <li>Group rates for 6+ guests</li>
+      <li>Custom packages for birthdays &amp; corporate</li>
+    </ul>
+  </div>
+  <form class="form sr d1" id="tableForm" novalidate>
+    <div class="field"><label for="tfName">Name</label><input id="tfName" type="text" placeholder="Your name"></div>
+    <div class="field"><label for="tfPhone">WhatsApp / phone</label><input id="tfPhone" type="tel" placeholder="+255 ..."></div>
+    <div class="field"><label for="tfEvent">Event</label><select id="tfEvent">
+      <option>The Wild Wild East — 4 Jul</option>
+      <option>Gold Rush — 1 Aug</option>
+      <option>It's A Cold Summer — 29 Aug</option>
+      <option>Suit &amp; Tie — 26 Sep</option>
+      <option>Season Pass (all four)</option>
+    </select></div>
+    <div class="field"><label for="tfSize">Group size</label><select id="tfSize">
+      <option>2–5 guests</option><option>6–10 guests</option><option>11–20 guests</option><option>20+ guests</option>
+    </select></div>
+    <div class="field full"><label for="tfTier">Preferred tier</label><select id="tfTier">
+      <option>VVIP table</option><option>VIP</option><option>Not sure — advise me</option>
+    </select></div>
+    <div class="field full"><label for="tfNotes">Anything else?</label><textarea id="tfNotes" placeholder="Occasion, budget, special requests…"></textarea></div>
+    <button class="btn btn-o full" type="button" id="tfSubmit">Request a table →</button>
+  </form>
+</div></div></section>
+
+<!-- CTA -->
+<section class="cta" id="contact"><div class="wrap">
+  <span class="eyebrow sr" style="color:#fff;justify-content:center;display:inline-flex">Stay in the loop</span>
+  <h2 class="sr">Never miss a night</h2>
+  <p class="sr d1">First access to lineups, presale codes, and Season Pass drops before they go public.</p>
+  <div class="signup sr d1"><input type="email" id="emailIn" placeholder="you@email.com" aria-label="Email"><button class="btn" id="joinBtn" type="button">Join the list</button></div>
+  <div class="ok" id="joinOk">✓ You're on the list — see you at the season opener.</div>
+  <div style="margin-top:22px"><a class="btn wa-btn" id="waCta" href="https://wa.me/255000000000" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-2.8.7.8-2.7-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4c0-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.7 2.7 4.2 3.7 1.5.6 2 .7 2.7.6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.4-.2Z"/></svg>Join our WhatsApp broadcast</a></div>
+</div></section>
+
+<!-- FOOTER -->
+<footer><div class="wrap">
+  <div class="foot-top">
+    <div><a class="brand" href="#top" style="color:var(--paper)"><span class="dot"></span>TIMBUKTU</a><p class="foot-blurb">Timbuktu Entertainment Company — concerts, festivals, and cultural events. The crossroads of sound.</p></div>
+    <div class="foot-col"><h4>Explore</h4><a href="#events">The 2026 Season</a><a href="#gallery">Gallery</a><a href="#faq">FAQ</a><a href="#tables">Tables &amp; groups</a></div>
+    <div class="foot-col"><h4>Work with us</h4><a href="#services">Book an artist</a><a href="#services">Produce an event</a><a href="#">Sponsorships</a><a href="#">Careers</a></div>
+    <div class="foot-col"><h4>Contact</h4><a href="#">hello@timbuktu.events</a><a href="#">+255 000 000 000</a><a href="#">Press kit</a><a href="#">Venue partners</a></div>
+  </div>
+  <div class="foot-bottom"><p>© 2026 Timbuktu Entertainment Company.</p>
+    <div class="socials">
+      <a href="https://wa.me/255000000000" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-2.8.7.8-2.7-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4c0-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.7 2.7 4.2 3.7 1.5.6 2 .7 2.7.6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.4-.2Z"/></svg></a>
+      <a href="https://instagram.com/timbuktu.events" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.1.4.3 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.1-1 .3-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.1-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.1 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2Zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1Zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8Zm0 8.1a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Zm6.2-8.3a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0Z"/></svg></a>
+      <a href="https://www.tiktok.com/@timbuktu.events" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 3c.3 2 1.5 3.5 3.5 3.8v2.4c-1.3.1-2.5-.3-3.6-1v6.4a5.6 5.6 0 1 1-5.6-5.6c.3 0 .5 0 .8.1v2.5a3.1 3.1 0 1 0 2.2 3V3h2.7Z"/></svg></a>
+      <a href="https://x.com/timbuktuevents" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 3h3l-6.6 7.5L21.5 21h-5.9l-4.2-5.5L6.5 21H3.4l7-8L2.8 3h6l3.8 5L17.5 3Zm-1 16h1.7L7.6 4.8H5.8L16.5 19Z"/></svg></a>
+    </div>
+  </div>
+</div></footer>
+
+<!-- BACK TO TOP -->
+<button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+
+<!-- STICKY MOBILE TICKET BAR -->
+<div class="sticky-buy" id="stickyBuy">
+  <div class="sb-info"><b id="sbName">Get tickets</b><span id="sbMeta">2026 Season · from TSh 25,000</span></div>
+  <button class="btn btn-o" id="sbBtn">Buy →</button>
+</div>
+
+<!-- MODAL ROOT -->
+<div class="backdrop" id="backdrop" role="dialog" aria-modal="true" aria-labelledby="mTitle"></div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script>
+  document.documentElement.classList.add('js');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fmt=function(n){return 'TSh '+n.toLocaleString('en-US')};
+
+  var EVENTS={
+    wild:{name:"The Wild Wild East",sub:'"Cowboy & Cowgirl"',date:"Saturday 4 July 2026",iso:"2026-07-04T18:00:00+03:00",venue:"Arusha — open-air, safari-country setting",accent:"var(--orange)",
+      desc:"A frontier night under the Arusha sky. Country-house warm-up into an afro house and amapiano peak — the electronic rodeo. Mechanical bull, saloon bar, and a DJ showdown finale. No hat, no entry.",
+      lineup:[{t:"6:00 PM",n:"DJ Joozey",r:"Warm-up"},{t:"8:00 PM",n:"Marioo",r:"Afrobeats"},{t:"10:00 PM",n:"DJ Unlimited",r:"Afro house"},{t:"11:00 PM",n:"Harmonize",r:"Bongo flava"},{t:"12:00 AM",n:"Uncle Waffles",r:"Headline · amapiano"}],
+      tiers:[{n:"Early Bird",p:25000,d:"Limited first release — general entry"},{n:"VIP",p:60000,d:"Fast-track entry + raised VIP deck & bar"},{n:"VVIP",p:120000,d:"Private table, bottle service, best views"}]},
+    gold:{name:"Gold Rush",sub:'"Strike It Rich"',date:"Saturday 1 August 2026",iso:"2026-08-01T18:00:00+03:00",venue:"Arusha — the goldfields after dark",accent:"var(--amber)",
+      desc:"The frontier strikes gold. A second Wild-West chapter built around amapiano and afro house, gold-dust visuals, and a back-to-back DJ showdown as the peak.",
+      lineup:[{t:"6:00 PM",n:"Scott Maphuma",r:"Opening amapiano"},{t:"8:30 PM",n:"Mbosso",r:"Bongo flava"},{t:"10:30 PM",n:"Daliwonga",r:"Amapiano"},{t:"12:30 AM",n:"Maphorisa b2b Kabza De Small",r:"Headline · Scorpion Kings"}],
+      tiers:[{n:"Early Bird",p:30000,d:"Limited first release — general entry"},{n:"VIP",p:70000,d:"Fast-track entry + VIP deck & bar"},{n:"VVIP",p:140000,d:"Private table, bottle service, prime views"}]},
+    cold:{name:"It's A Cold Summer",sub:'"Bongoyo Takeover"',date:"Saturday 29 August 2026",iso:"2026-08-29T15:00:00+03:00",venue:"Bongoyo Island, Dar — full island buyout",accent:"var(--blue)",
+      desc:"A full island buyout. All-white dress code, boat transfer with a welcome drink, an ice bar, and a golden-hour-to-stars journey of deep and afro house. If you're not on the boat, you're not at the party.",
+      lineup:[{t:"3:00 PM",n:"TxC",r:"Jetty / arrival"},{t:"5:00 PM",n:"DJ Shimza",r:"Sunset afro house"},{t:"7:30 PM",n:"LeeMcKrazy",r:"Amapiano"},{t:"9:30 PM",n:"Wizkid",r:"Headline"}],
+      tiers:[{n:"Early Bird",p:80000,d:"Return boat transfer + welcome drink"},{n:"VIP",p:180000,d:"Priority boat + VIP sandbar lounge"},{n:"VVIP",p:350000,d:"Cabana, bottle service, ice-throne table"}]},
+    suit:{name:"Suit & Tie",sub:'"A 9–5 Groove Session"',date:"Saturday 26 September 2026",iso:"2026-09-26T17:00:00+03:00",venue:"Dar es Salaam — the season finale",accent:"var(--green)",
+      desc:"Clock out, come straight from work, decompress. Corporate-but-sexy dress code, soulful and deep house early, slow jams and R&B to close. Free shot on arrival — consider it clocking in.",
+      lineup:[{t:"5:00 PM",n:"Zuchu",r:"Soulful · R&amp;B"},{t:"7:30 PM",n:"Burna Boy",r:"Afrobeats"},{t:"9:30 PM",n:"Diamond Platnumz",r:"Headline · finale"}],
+      tiers:[{n:"Early Bird",p:35000,d:'General entry + "clock-in" shot'},{n:"VIP",p:80000,d:"Reserved lounge + fast-track entry"},{n:"VVIP",p:160000,d:'Table, bottle service, "overtime" after-set'}]}
+  };
+  var ORDER=['wild','gold','cold','suit'];
+  var PASS={name:"The 2026 Season Pass",sub:"All four nights · one ticket",date:"Valid for the full 2026 season",venue:"Wild Wild East · Gold Rush · Cold Summer · Suit & Tie",accent:"var(--orange)",
+    desc:"One bundled ticket to every night of the season, at a discount on buying separately. Attend all four and earn a closing perk at the Suit & Tie finale — VIP, a name on the wall, the full set.",
+    tiers:[{n:"Standard Pass",p:140000,d:"Early-bird entry to all 4 nights (save 30,000)"},{n:"VIP Pass",p:340000,d:"VIP tier across all 4 nights (save 50,000)"},{n:"VVIP Pass",p:680000,d:"VVIP table & service at all 4 (save 90,000)"}]};
+
+  var backdrop=document.getElementById('backdrop');
+  var lastFocus=null, sel=0, qty=1, current=null;
+
+  function renderTicketModal(ev){
+    current=ev; sel=0; qty=1;
+    var tiers=ev.tiers.map(function(t,i){
+      return '<div class="tier'+(i===0?' sel':'')+'" data-i="'+i+'"><span class="rad"></span><div class="ti"><div class="tn">'+t.n+'</div><div class="td">'+t.d+'</div></div><div class="tp">'+fmt(t.p)+'</div></div>';
+    }).join('');
+    var lineup='';
+    if(ev.lineup&&ev.lineup.length){
+      lineup='<div class="m-tierhd">Lineup</div><div class="m-lineup">'+ev.lineup.map(function(a){
+        var st=/headline|finale/i.test(a.r)?' star':'';
+        return '<div class="lu-row'+st+'"><span class="lu-time">'+a.t+'</span><span class="lu-name">'+a.n+'</span><span class="lu-role">'+a.r+'</span></div>';
+      }).join('')+'</div>';
+    }
+    backdrop.innerHTML=
+      '<div class="modal" style="--accent:'+ev.accent+'">'
+      +'<div class="m-head"><span class="accentbar"></span>'
+        +'<button class="m-close" id="mClose" aria-label="Close">✕</button>'
+        +'<div class="m-kicker">'+ev.date+'</div>'
+        +'<div class="m-title" id="mTitle">'+ev.name+'</div>'
+        +'<div class="m-meta">'+ev.sub+' · '+ev.venue+'</div>'
+      +'</div>'
+      +'<div class="m-body">'
+        +'<p class="m-desc">'+ev.desc+'</p>'
+        +lineup
+        +'<div class="m-tierhd">Choose your ticket</div>'
+        +'<div id="tierList">'+tiers+'</div>'
+        +'<div class="m-foot">'
+          +'<div class="qty"><button id="qMinus" aria-label="Decrease">−</button><span id="qVal">1</span><button id="qPlus" aria-label="Increase">+</button></div>'
+          +'<div class="m-total">Total<b id="mTotal">'+fmt(ev.tiers[0].p)+'</b></div>'
+          +'<button class="btn btn-o m-buy" id="mBuy">Get tickets →</button>'
+        +'</div>'
+      +'</div></div>';
+    wireModal();
+    openModal();
+  }
+
+  function renderLightbox(g,k,v){
+    backdrop.innerHTML=
+      '<div class="modal" style="--accent:var(--orange);max-width:680px">'
+      +'<button class="m-close" id="mClose" aria-label="Close" style="top:14px;right:14px;z-index:2">✕</button>'
+      +'<div class="lb-img g-'+g+'"></div>'
+      +'<div class="lb-cap"><div class="k">'+k+'</div><div class="v" id="mTitle">'+v+'</div>'
+      +'<small>Placeholder image — your real event photo will appear here.</small></div>'
+      +'</div>';
+    document.getElementById('mClose').addEventListener('click',closeModal);
+    openModal();
+  }
+
+  function wireModal(){
+    document.getElementById('mClose').addEventListener('click',closeModal);
+    var list=document.getElementById('tierList');
+    list.addEventListener('click',function(e){
+      var row=e.target.closest('.tier'); if(!row)return;
+      sel=+row.dataset.i;
+      list.querySelectorAll('.tier').forEach(function(t){t.classList.remove('sel')});
+      row.classList.add('sel'); updateTotal();
+    });
+    document.getElementById('qMinus').addEventListener('click',function(){if(qty>1){qty--;updateQty()}});
+    document.getElementById('qPlus').addEventListener('click',function(){if(qty<10){qty++;updateQty()}});
+    document.getElementById('mBuy').addEventListener('click',function(){
+      var t=current.tiers[sel];
+      toast('Added: <span class="acc">'+t.n+' × '+qty+'</span> — '+current.name);
+      closeModal();
+    });
+  }
+  function updateQty(){document.getElementById('qVal').textContent=qty;updateTotal()}
+  function updateTotal(){document.getElementById('mTotal').textContent=fmt(current.tiers[sel].p*qty)}
+
+  function openModal(){
+    lastFocus=document.activeElement;
+    backdrop.style.display='flex';
+    requestAnimationFrame(function(){requestAnimationFrame(function(){backdrop.classList.add('show')})});
+    document.body.style.overflow='hidden';
+    var c=document.getElementById('mClose'); if(c)c.focus();
+  }
+  function closeModal(){
+    backdrop.classList.remove('show');
+    document.body.style.overflow='';
+    var done=function(){backdrop.style.display='none';backdrop.innerHTML='';backdrop.removeEventListener('transitionend',done);if(lastFocus)lastFocus.focus()};
+    if(reduce){done()}else{backdrop.addEventListener('transitionend',done)}
+  }
+  backdrop.addEventListener('click',function(e){if(e.target===backdrop)closeModal()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&backdrop.classList.contains('show'))closeModal()});
+
+  // toasts
+  function toast(html){
+    var t=document.createElement('div');t.className='toast';t.innerHTML=html;
+    document.getElementById('toasts').appendChild(t);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){t.classList.add('show')})});
+    setTimeout(function(){t.classList.remove('show');setTimeout(function(){t.remove()},300)},2800);
+  }
+
+  // wire events
+  function activate(el,fn){
+    el.addEventListener('click',fn);
+    el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();fn()}});
+  }
+  document.querySelectorAll('[data-event]').forEach(function(c){
+    activate(c,function(){renderTicketModal(EVENTS[c.dataset.event])});
+  });
+  document.querySelectorAll('[data-g]').forEach(function(t){
+    activate(t,function(){renderLightbox(t.dataset.g,t.dataset.k,t.dataset.v)});
+  });
+  activate(document.getElementById('badge'),function(){renderTicketModal(PASS)});
+  document.getElementById('passBtn').addEventListener('click',function(){renderTicketModal(PASS)});
+
+  // mobile menu
+  var mBtn=document.getElementById('menuBtn'),mMenu=document.getElementById('mMenu');
+  mBtn.addEventListener('click',function(){
+    var open=mMenu.classList.toggle('open');
+    mBtn.setAttribute('aria-expanded',open);mBtn.textContent=open?'✕':'≡';
+  });
+  mMenu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){
+    mMenu.classList.remove('open');mBtn.setAttribute('aria-expanded','false');mBtn.textContent='≡';
+  })});
+
+  // newsletter
+  var joinBtn=document.getElementById('joinBtn');
+  joinBtn.addEventListener('click',function(){
+    var v=document.getElementById('emailIn').value.trim();
+    if(!v||v.indexOf('@')<1){toast('Enter a valid email to join');return}
+    document.getElementById('joinOk').classList.add('show');
+    document.getElementById('emailIn').value='';
+    toast('✓ <span class="acc">You\'re on the list</span>');
+  });
+
+  // hero entrance
+  requestAnimationFrame(function(){requestAnimationFrame(function(){document.body.classList.add('lit')})});
+
+  // ---- next event + countdown ----
+  function nextEventKey(){
+    var now=Date.now();
+    for(var i=0;i<ORDER.length;i++){if(new Date(EVENTS[ORDER[i]].iso).getTime()>now)return ORDER[i];}
+    return null;
+  }
+  (function(){
+    var key=nextEventKey();
+    var nameEl=document.getElementById('cdName'),metaEl=document.getElementById('cdMeta');
+    var dE=document.getElementById('cdD'),hE=document.getElementById('cdH'),mE=document.getElementById('cdM'),sE=document.getElementById('cdS');
+    var sbName=document.getElementById('sbName'),sbMeta=document.getElementById('sbMeta');
+    function pad(n){return (n<10?'0':'')+n}
+    if(!key){
+      document.getElementById('countdown').querySelector('.cd-inner').innerHTML='<div class="cd-left"><div><div class="cd-kick">The 2026 season</div><div class="cd-name">That\u2019s a wrap \u2014 see you in 2027</div></div></div>';
+      return;
+    }
+    var ev=EVENTS[key], target=new Date(ev.iso).getTime();
+    nameEl.firstChild.textContent=ev.name;
+    metaEl.textContent=ev.venue.split(' — ')[0]+' · '+ev.date;
+    if(sbName){sbName.textContent=ev.name;sbMeta.textContent='Next up · from '+fmt(ev.tiers[0].p);}
+    function tick(){
+      var diff=target-Date.now();
+      if(diff<=0){diff=0;}
+      var d=Math.floor(diff/864e5),h=Math.floor(diff%864e5/36e5),m=Math.floor(diff%36e5/6e4),s=Math.floor(diff%6e4/1e3);
+      dE.textContent=pad(d);hE.textContent=pad(h);mE.textContent=pad(m);sE.textContent=pad(s);
+    }
+    tick(); setInterval(tick,1000);
+    // sticky + countdown open the next event
+    function openNext(){renderTicketModal(EVENTS[nextEventKey()||'wild'])}
+    var sbBtn=document.getElementById('sbBtn'); if(sbBtn)sbBtn.addEventListener('click',openNext);
+  })();
+
+  // ---- back to top ----
+  (function(){
+    var btn=document.getElementById('toTop'); if(!btn)return;
+    var ticking=false;
+    function update(){btn.classList.toggle('show',window.scrollY>560);ticking=false;}
+    window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive:true});
+    update();
+    btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});});
+  })();
+
+  // ---- sticky mobile bar: show after hero ----
+  (function(){
+    var bar=document.getElementById('stickyBuy'),hero=document.getElementById('top');
+    if(!bar||!hero||!('IntersectionObserver' in window)){if(bar)bar.classList.add('show');return;}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){bar.classList.toggle('show',!e.isIntersecting)})},{threshold:.15});
+    io.observe(hero);
+  })();
+
+  // ---- FAQ accordion ----
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click',function(){
+      var item=q.closest('.faq'), open=item.classList.contains('open');
+      document.querySelectorAll('.faq').forEach(function(f){f.classList.remove('open')});
+      if(!open)item.classList.add('open');
+    });
+  });
+
+  // ---- table / group booking ----
+  var tfSubmit=document.getElementById('tfSubmit');
+  if(tfSubmit)tfSubmit.addEventListener('click',function(){
+    var name=document.getElementById('tfName').value.trim();
+    var phone=document.getElementById('tfPhone').value.trim();
+    if(!name||!phone){toast('Add your name and phone so we can reply');return;}
+    var ev=document.getElementById('tfEvent').value.split(' — ')[0];
+    toast('✓ <span class="acc">Request sent</span> — we\'ll WhatsApp you about '+ev);
+    document.getElementById('tableForm').reset();
+  });
+
+  // sponsor CTA -> tables form
+  var spCta=document.getElementById('sponsorCta');
+  if(spCta)spCta.addEventListener('click',function(){document.getElementById('tables').scrollIntoView({behavior:reduce?'auto':'smooth'})});
+
+  // scroll reveal
+  (function(){
+    var els=document.querySelectorAll('.sr');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+    els.forEach(function(e){io.observe(e)});
+  })();
+
+  // stat count-up
+  (function(){
+    var nums=document.querySelectorAll('[data-count]');
+    function run(el){var end=+el.dataset.count,suf=el.dataset.suffix||'',t0=null,dur=1100;
+      if(reduce){el.textContent=end+suf;return;}
+      function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);
+        el.textContent=Math.round(end*e)+suf;if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
+    if(!('IntersectionObserver' in window)){nums.forEach(run);return;}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){run(e.target);io.unobserve(e.target)}})},{threshold:.5});
+    nums.forEach(function(e){io.observe(e)});
+  })();
+</script>
+</body>
+</html>
